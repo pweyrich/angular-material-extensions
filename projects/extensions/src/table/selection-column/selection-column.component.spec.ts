@@ -39,4 +39,14 @@ describe('MatSelectionColumnComponent: ', () =>
   {
     expect(component).toBeTruthy();
   });
+
+  it('should register itself in the table during intialization', () =>
+  {
+    const matTable = TestBed.inject(MatTable);
+    const addColumnDefSpy = spyOn(matTable, 'addColumnDef');
+
+    component.ngOnInit();
+
+    expect(addColumnDefSpy).toHaveBeenCalledTimes(1);
+  });
 });
