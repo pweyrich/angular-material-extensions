@@ -49,4 +49,14 @@ describe('MatSelectionColumnComponent: ', () =>
 
     expect(addColumnDefSpy).toHaveBeenCalledTimes(1);
   });
+
+  it('should unregister itself in the table when it is destroyed', () =>
+  {
+    const matTable = TestBed.inject(MatTable);
+    const removeColumnDefSpy = spyOn(matTable, 'removeColumnDef');
+
+    component.ngOnDestroy();
+
+    expect(removeColumnDefSpy).toHaveBeenCalledTimes(1);
+  });
 });
