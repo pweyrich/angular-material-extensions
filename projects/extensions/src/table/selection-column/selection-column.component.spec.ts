@@ -3,42 +3,40 @@ import {
   TestBed
 } from '@angular/core/testing';
 import {
+  MatColumnDef,
   MatTable,
   MatTableModule
 } from '@angular/material/table';
 import { MatSelectionColumnComponent } from './selection-column.component';
-import { Component } from '@angular/core';
-import { By } from '@angular/platform-browser';
+import { noop } from 'rxjs';
 
-@Component({
-  selector: 'mat-selection-test',
-  template: `<mat-table>
-    <mat-selection-column></mat-selection-column>
-  </mat-table>`
-})
-class MatSelectionTestComponent {}
+const matTableStub: Partial<MatTable<any>> = {
+  addColumnDef: (columnDef: MatColumnDef) => noop(),
+  removeColumnDef: (columnDef: MatColumnDef) => noop(),
+};
 
 describe('MatSelectionColumnComponent: ', () =>
 {
-  let fixture: ComponentFixture<MatTable<any>>;
-  let tableComponent: MatTable<any>;
-  let columnComponent: MatSelectionColumnComponent<any>;
+  let fixture: ComponentFixture<MatSelectionColumnComponent<any>>;
+  let component: MatSelectionColumnComponent<any>;
 
   beforeEach(() =>
   {
     TestBed.configureTestingModule({
       imports:      [MatTableModule],
-      declarations: [MatSelectionColumnComponent]
+      declarations: [MatSelectionColumnComponent],
+      providers: [{
+        provide: MatTable,
+        useValue: matTableStub
+      }]
     });
 
-    fixture = TestBed.createComponent(MatTable);
-    tableComponent = fixture.componentInstance;
-    // columnComponent = fixture.debugElement.query(By.directive(MatSelectionColumnComponent)).nativeElement;
+    fixture = TestBed.createComponent(MatSelectionColumnComponent);
+    component = fixture.componentInstance;
   });
 
   it('should create', () =>
   {
-    expect(tableComponent).toBeTruthy();
-    // expect(columnComponent).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 });
