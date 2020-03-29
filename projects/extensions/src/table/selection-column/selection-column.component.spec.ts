@@ -10,15 +10,16 @@ import {
 import { MatSelectionColumnComponent } from './selection-column.component';
 import { noop } from 'rxjs';
 
-const matTableStub: Partial<MatTable<any>> = {
+const matTableStub: Partial<MatTable<number>> = {
   addColumnDef: (columnDef: MatColumnDef) => noop(),
   removeColumnDef: (columnDef: MatColumnDef) => noop(),
+  dataSource: [1, 2, 3]
 };
 
 describe('MatSelectionColumnComponent: ', () =>
 {
-  let fixture: ComponentFixture<MatSelectionColumnComponent<any>>;
-  let component: MatSelectionColumnComponent<any>;
+  let fixture: ComponentFixture<MatSelectionColumnComponent<number>>;
+  let component: MatSelectionColumnComponent<number>;
 
   beforeEach(() =>
   {
@@ -31,7 +32,7 @@ describe('MatSelectionColumnComponent: ', () =>
       }]
     });
 
-    fixture = TestBed.createComponent(MatSelectionColumnComponent);
+    fixture = TestBed.createComponent<MatSelectionColumnComponent<number>>(MatSelectionColumnComponent);
     component = fixture.componentInstance;
   });
 
