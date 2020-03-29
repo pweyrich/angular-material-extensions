@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatSelectionColumnComponent } from './selection-column/selection-column.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 /**
@@ -11,7 +13,9 @@ import { MatSelectionColumnComponent } from './selection-column/selection-column
     MatSelectionColumnComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatTableModule,
+    MatCheckboxModule
   ],
   exports: [
     MatSelectionColumnComponent
