@@ -20,18 +20,15 @@ import {
 })
 export class MatSelectionColumnComponent<T> implements OnInit, OnDestroy {
 
-  @Input()
-  public name: string;
+  /** @description Name of the column */
+  @Input() name: string;
 
-  @Input()
-  public selection: SelectionModel<T>;
+  /** @description Reference to the selection model */
+  @Input() selection: SelectionModel<T>;
 
-  @ViewChild(MatColumnDef, {static: true})
-  private columnDef: MatColumnDef;
-  @ViewChild(MatCellDef, {static: true})
-  private cell: MatCellDef;
-  @ViewChild(MatHeaderCellDef, {static: true})
-  private headerCell: MatHeaderCellDef;
+  @ViewChild(MatColumnDef, {static: true}) private columnDef: MatColumnDef;
+  @ViewChild(MatCellDef, {static: true}) private cell: MatCellDef;
+  @ViewChild(MatHeaderCellDef, {static: true}) private headerCell: MatHeaderCellDef;
 
   constructor(private table: MatTable<T>) { }
 
