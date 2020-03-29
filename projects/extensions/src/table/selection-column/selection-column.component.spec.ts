@@ -2,13 +2,28 @@ import {
   ComponentFixture,
   TestBed
 } from '@angular/core/testing';
-import { MatTableModule } from '@angular/material/table';
+import {
+  MatTable,
+  MatTableModule
+} from '@angular/material/table';
 import { MatSelectionColumnComponent } from './selection-column.component';
+import { Component } from '@angular/core';
+import { By } from '@angular/platform-browser';
+
+@Component({
+  selector: 'mat-selection-test',
+  template: `<mat-table>
+    <mat-selection-column></mat-selection-column>
+  </mat-table>`
+})
+class MatSelectionTestComponent {}
 
 describe('MatSelectionColumnComponent: ', () =>
 {
-  let fixture: ComponentFixture<MatSelectionColumnComponent<any>>;
-  let component: MatSelectionColumnComponent<any>;
+  let fixture: ComponentFixture<MatTable<any>>;
+  let tableComponent: MatTable<any>;
+  let columnComponent: MatSelectionColumnComponent<any>;
+
   beforeEach(() =>
   {
     TestBed.configureTestingModule({
@@ -16,12 +31,14 @@ describe('MatSelectionColumnComponent: ', () =>
       declarations: [MatSelectionColumnComponent]
     });
 
-    fixture = TestBed.createComponent(MatSelectionColumnComponent);
-    component = fixture.componentInstance;
+    fixture = TestBed.createComponent(MatTable);
+    tableComponent = fixture.componentInstance;
+    // columnComponent = fixture.debugElement.query(By.directive(MatSelectionColumnComponent)).nativeElement;
   });
 
-  xit('should create', () =>
+  it('should create', () =>
   {
-    expect(component).toBeTruthy();
+    expect(tableComponent).toBeTruthy();
+    // expect(columnComponent).toBeTruthy();
   });
 });
