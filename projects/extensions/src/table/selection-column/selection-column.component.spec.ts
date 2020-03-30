@@ -41,7 +41,7 @@ describe('MatSelectionColumnComponent: ', () =>
     expect(component).toBeTruthy();
   });
 
-  it('should register itself in the table during intialization', () =>
+  it('should register itself in the table during initialization', () =>
   {
     const matTable = TestBed.inject(MatTable);
     const addColumnDefSpy = spyOn(matTable, 'addColumnDef');
