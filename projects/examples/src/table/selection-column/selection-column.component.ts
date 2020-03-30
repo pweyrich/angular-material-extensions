@@ -20,7 +20,7 @@ export const states: State[] = [
 
 @Component({
   selector: 'app-selection-column',
-  template: `<table mat-table [dataSource]="data">
+  template: `<table mat-table [dataSource]="data" class="full-width">
     <mat-selection-column name="select" [selection]="selection"></mat-selection-column>
 
     <ng-container matColumnDef="name">
@@ -36,7 +36,7 @@ export const states: State[] = [
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>`,
-  styles: [],
+  styles: ['.full-width { width: 100% }'],
 })
 export class SelectionColumnComponent {
 
