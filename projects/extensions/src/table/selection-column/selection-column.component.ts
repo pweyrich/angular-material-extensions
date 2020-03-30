@@ -44,14 +44,14 @@ export class MatSelectionColumnComponent<T> implements OnInit, OnDestroy {
   }
 
   private get data(): T[] {
-    return this.table.dataSource as T[];
+    return this.table?.dataSource as T[] || [];
   }
 
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
-    const numSelected = this.selection ? this.selection.selected.length : 0;
-    const numRows = this.data ? this.data.length : 0;
+    const numSelected = this.selection?.selected.length || 0;
+    const numRows = this.data.length;
     return numSelected === numRows;
   }
 
