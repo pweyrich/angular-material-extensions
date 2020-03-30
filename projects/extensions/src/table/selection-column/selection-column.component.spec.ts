@@ -5,10 +5,12 @@ import {
 import {
   MatColumnDef,
   MatTable,
-  MatTableModule
+  MatTableModule,
+  MatTextColumn
 } from '@angular/material/table';
 import { MatSelectionColumnComponent } from './selection-column.component';
 import { noop } from 'rxjs';
+import { By } from '@angular/platform-browser';
 
 const matTableStub: Partial<MatTable<number>> = {
   addColumnDef: (columnDef: MatColumnDef) => noop(),
@@ -59,5 +61,20 @@ describe('MatSelectionColumnComponent: ', () =>
     component.ngOnDestroy();
 
     expect(removeColumnDefSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it(`should update the columnDef's name with the value of the #name input`, () =>
+  {
+    component.name = 'test';
+
+    component.ngOnInit();
+
+    expect(component.columnDef.name).toEqual(component.name);
+  });
+
+  it(`should set the columnDef's name with a default value of 'select'`, () =>
+  {
+    component.ngOnInit();
+    expect(component.columnDef.name).toEqual('select');
   });
 });

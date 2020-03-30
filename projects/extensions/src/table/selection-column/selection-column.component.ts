@@ -26,14 +26,14 @@ export class MatSelectionColumnComponent<T> implements OnInit, OnDestroy {
   /** @description Reference to the selection model */
   @Input() selection: SelectionModel<T>;
 
-  @ViewChild(MatColumnDef, {static: true}) private columnDef: MatColumnDef;
-  @ViewChild(MatCellDef, {static: true}) private cell: MatCellDef;
-  @ViewChild(MatHeaderCellDef, {static: true}) private headerCell: MatHeaderCellDef;
+  @ViewChild(MatColumnDef, {static: true}) columnDef: MatColumnDef;
+  @ViewChild(MatCellDef, {static: true}) cell: MatCellDef;
+  @ViewChild(MatHeaderCellDef, {static: true}) headerCell: MatHeaderCellDef;
 
   constructor(private table: MatTable<T>) { }
 
   public ngOnInit(): void {
-    this.columnDef.name = this.name;
+    this.columnDef.name = this.name || 'select';
     this.columnDef.cell = this.cell;
     this.columnDef.headerCell = this.headerCell;
     this.table.addColumnDef(this.columnDef);
