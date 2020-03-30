@@ -42,7 +42,7 @@ export class SelectionColumnComponent {
 
   data = states;
   displayedColumns = ['select', 'name', 'population'];
-  selection = new SelectionModel<State>(true, this.data);
+  selection = new SelectionModel<State>(true);
 
   constructor() { }
 
