@@ -5,12 +5,11 @@ import {
 import {
   MatColumnDef,
   MatTable,
-  MatTableModule,
-  MatTextColumn
+  MatTableModule
 } from '@angular/material/table';
 import { MatSelectionColumnComponent } from './selection-column.component';
 import { noop } from 'rxjs';
-import { By } from '@angular/platform-browser';
+import { SelectionModel } from '@angular/cdk/collections';
 
 const matTableStub: Partial<MatTable<number>> = {
   addColumnDef: (columnDef: MatColumnDef) => noop(),
@@ -76,5 +75,13 @@ describe('MatSelectionColumnComponent: ', () =>
   {
     component.ngOnInit();
     expect(component.columnDef.name).toEqual('select');
+  });
+
+  describe('with SelectionModel', () =>
+  {
+    beforeEach(() =>
+    {
+      component.selection = new SelectionModel<number>(true);
+    });
   });
 });
