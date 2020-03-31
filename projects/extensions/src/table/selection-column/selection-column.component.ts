@@ -59,7 +59,7 @@ export class MatSelectionColumnComponent<T> implements OnInit, OnDestroy {
   masterToggle() {
     this.isAllSelected() ?
       this.selection.clear() :
-      this.data.forEach(row => this.selection.select(row));
+      this.selection.select(...this.data);
   }
 
 }

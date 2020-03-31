@@ -78,22 +78,39 @@ describe('MatSelectionColumnComponent: ', () =>
 
   describe('with SelectionModel', () =>
   {
+    let data: number[];
     beforeEach(() =>
     {
       component.selection = new SelectionModel<number>(true);
+      const matTable = TestBed.inject(MatTable);
+      data = matTable.dataSource as number[];
+    });
+
+    it('should give information about the current state of selection via #isAllSelected', () =>
+    {
+      expect(component.selection.selected.length).toBe(0);
+      expect(component.selection.isEmpty()).toBe(true);
+      expect(component.isAllSelected()).toBe(false);
+
+      component.selection.select(...data); // select all
+
+      expect(component.selection.selected.length).toBe(data.length);
+      expect(component.selection.isEmpty()).toBe(false);
+      expect(component.isAllSelected()).toBe(true);
     });
 
     it('should toggle all if the #masterToggle() is executed', () =>
     {
-      const matTable = TestBed.inject(MatTable);
-      const data: number[] = matTable.dataSource as number[];
-
       expect(component.isAllSelected()).toBe(false);
       expect(component.selection.selected.length).toBe(0);
+
       component.masterToggle();
+
       expect(component.isAllSelected()).toBe(true);
       expect(component.selection.selected.length).toBe(data.length);
+
       component.masterToggle();
+
       expect(component.isAllSelected()).toBe(false);
       expect(component.selection.selected.length).toBe(0);
     });
