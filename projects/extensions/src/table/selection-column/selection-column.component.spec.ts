@@ -3,7 +3,6 @@ import {
   TestBed
 } from '@angular/core/testing';
 import {
-  MatColumnDef,
   MatTable,
   MatTableModule
 } from '@angular/material/table';
@@ -12,8 +11,8 @@ import { noop } from 'rxjs';
 import { SelectionModel } from '@angular/cdk/collections';
 
 const matTableStub: Partial<MatTable<number>> = {
-  addColumnDef: (columnDef: MatColumnDef) => noop(),
-  removeColumnDef: (columnDef: MatColumnDef) => noop(),
+  addColumnDef: noop,
+  removeColumnDef: noop,
   dataSource: [1, 2, 3]
 };
 
