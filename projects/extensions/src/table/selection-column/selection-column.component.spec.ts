@@ -86,11 +86,13 @@ describe('MatSelectionColumnComponent: ', () =>
     it('should toggle all if the #masterToggle() is executed', () =>
     {
       const matTable = TestBed.inject(MatTable);
+      const data: number[] = matTable.dataSource as number[];
+
       expect(component.isAllSelected()).toBe(false);
       expect(component.selection.selected.length).toBe(0);
       component.masterToggle();
       expect(component.isAllSelected()).toBe(true);
-      expect(component.selection.selected.length).toBe((matTable.dataSource as number[]).length);
+      expect(component.selection.selected.length).toBe(data.length);
       component.masterToggle();
       expect(component.isAllSelected()).toBe(false);
       expect(component.selection.selected.length).toBe(0);
