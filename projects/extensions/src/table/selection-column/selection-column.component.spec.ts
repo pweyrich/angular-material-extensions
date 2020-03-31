@@ -67,13 +67,13 @@ describe('MatSelectionColumnComponent: ', () =>
 
     component.ngOnInit();
 
-    expect(component.columnDef.name).toEqual(component.name);
+    expect(component.columnDef.name).toBe(component.name);
   });
 
   it(`should set the columnDef's name with a default value of 'select'`, () =>
   {
     component.ngOnInit();
-    expect(component.columnDef.name).toEqual('select');
+    expect(component.columnDef.name).toBe('select');
   });
 
   describe('with SelectionModel', () =>
