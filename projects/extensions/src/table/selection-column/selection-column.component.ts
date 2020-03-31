@@ -57,6 +57,10 @@ export class MatSelectionColumnComponent<T> implements OnInit, OnDestroy {
 
   /** Selects all rows if they are not all selected; otherwise clear selection. */
   masterToggle() {
+    if (!this.selection)
+    {
+      return;
+    }
     this.isAllSelected() ?
       this.selection.clear() :
       this.selection.select(...this.data);

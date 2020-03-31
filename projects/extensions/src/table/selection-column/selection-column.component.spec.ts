@@ -76,6 +76,18 @@ describe('MatSelectionColumnComponent: ', () =>
     expect(component.columnDef.name).toBe('select');
   });
 
+  it(`should set the columnDef's header with the headerCellDef viewChild`, () =>
+  {
+    component.ngOnInit();
+    expect(component.columnDef.headerCell).toBe(component.headerCell);
+  });
+
+  it(`should set the columnDef's cell with the cellDef viewChild`, () =>
+  {
+    component.ngOnInit();
+    expect(component.columnDef.cell).toBe(component.cell);
+  });
+
   describe('with SelectionModel', () =>
   {
     let data: number[];
@@ -113,6 +125,24 @@ describe('MatSelectionColumnComponent: ', () =>
 
       expect(component.isAllSelected()).toBe(false);
       expect(component.selection.selected.length).toBe(0);
+    });
+  });
+
+  describe(`without SelectionModel`, () =>
+  {
+    it(`should return false for #isAllSelected()`, () =>
+    {
+      expect(component.selection).toBeUndefined();
+      expect(component.isAllSelected()).toBe(false);
+    });
+
+    it(`should not do anything when executing the #masterToggle()`, () =>
+    {
+      expect(component.isAllSelected()).toBe(false);
+
+      component.masterToggle();
+
+      expect(component.isAllSelected()).toBe(false);
     });
   });
 });
