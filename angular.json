@@ -43,7 +43,7 @@
         }
       }
     },
-    "examples": {
+    "docs": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -74,26 +74,26 @@
           "skipTests": true
         }
       },
-      "root": "projects/examples",
-      "sourceRoot": "projects/examples/src",
+      "root": "projects/docs",
+      "sourceRoot": "projects/docs/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/examples",
-            "index": "projects/examples/src/index.html",
-            "main": "projects/examples/src/main.ts",
-            "polyfills": "projects/examples/src/polyfills.ts",
-            "tsConfig": "projects/examples/tsconfig.app.json",
+            "outputPath": "dist/docs",
+            "index": "projects/docs/src/index.html",
+            "main": "projects/docs/src/main.ts",
+            "polyfills": "projects/docs/src/polyfills.ts",
+            "tsConfig": "projects/docs/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "projects/examples/src/favicon.ico",
-              "projects/examples/src/assets"
+              "projects/docs/src/favicon.ico",
+              "projects/docs/src/assets"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "projects/examples/src/styles.scss"
+              "projects/docs/src/styles.scss"
             ],
             "scripts": []
           },
@@ -101,8 +101,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/examples/src/environments/environment.ts",
-                  "with": "projects/examples/src/environments/environment.prod.ts"
+                  "replace": "projects/docs/src/environments/environment.ts",
+                  "with": "projects/docs/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -131,18 +131,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "examples:build"
+            "browserTarget": "docs:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "examples:build:production"
+              "browserTarget": "docs:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "examples:build"
+            "browserTarget": "docs:build"
           }
         }
       }
