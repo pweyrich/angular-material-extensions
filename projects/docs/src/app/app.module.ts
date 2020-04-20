@@ -5,7 +5,7 @@ import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatTableExtensionsModule } from '../../../extensions/src/lib/table'; // TODO: use pathmapping
+import { MatTableExtensionsModule } from '../../../extensions/src/table'; // TODO: use pathmapping
 
 @NgModule({
   declarations: [

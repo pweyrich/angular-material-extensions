@@ -1,4 +1,4 @@
 /*
  * Public API Surface of extensions
  */
-export * from './lib/table';
+export * from './table';
