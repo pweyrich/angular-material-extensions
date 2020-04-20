@@ -43,7 +43,6 @@ export class CustomHeaderDirective implements AfterViewInit
     return Array.from(rowElem.children);
   }
 
-
   private createDrags(cellRefs: Array<MatHeaderCell>): Array<DragRef>
   {
     return cellRefs.map((cellRef: MatHeaderCell) =>
