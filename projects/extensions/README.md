@@ -1,24 +1,20 @@
-# Extensions
+![CI](https://github.com/pweyrich/angular-material-extensions/workflows/CI/badge.svg?branch=master)
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+Extensions to the components provided by [@angular/material](https://material.angular.io/)
 
-## Code scaffolding
+# Usage
 
-Run `ng generate component component-name --project extensions` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project extensions`.
-> Note: Don't forget to add `--project extensions` or else it will be added to the default project in your `angular.json` file. 
+Add `matCustomHeader` directive to the header row.
 
-## Build
-
-Run `ng build extensions` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build extensions`, go to the dist folder `cd dist/extensions` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test extensions` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+   <ng-container *ngFor="let column of columns; let i = index" [matColumnDef]="column">
+       <mat-header-cell *matHeaderCellDef>
+         {{ column }}
+       </mat-header-cell>
+       <mat-cell *matCellDef="let row"> {{ row[column] }}  </mat-cell>
+   </ng-container>
+   <mat-header-row *matHeaderRowDef="displayedColumns" matCustomHeader></mat-header-row>
+   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+```
