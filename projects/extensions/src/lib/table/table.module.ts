@@ -13,4 +13,4 @@ import { CustomHeaderDirective } from './directives/custom-header.directive';
     CustomHeaderDirective
   ]
 })
-export class MatExtensionsTableModule { }
+export class MatTableExtensionsModule { }
