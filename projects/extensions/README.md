@@ -1,3 +1,7 @@
+![CI](https://github.com/pweyrich/angular-material-extensions/workflows/CI/badge.svg?branch=master)
+
+Extensions to the components provided by [@angular/material](https://material.angular.io/)
+
 # Usage
 
 Add `matCustomHeader` directive to the header row.
