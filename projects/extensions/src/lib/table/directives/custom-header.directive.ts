@@ -40,12 +40,7 @@ export class CustomHeaderDirective implements AfterViewInit
 
   private getHeaderCells(rowElem: Element): Array<MatHeaderCell>
   {
-    const headerCells: Array<MatHeaderCell> = [];
-    for (let i = 0; i < rowElem.children.length; i++)
-    {
-      headerCells.push(rowElem.children.item(i));
-    }
-    return headerCells;
+    return Array.from(rowElem.children);
   }
 
 
