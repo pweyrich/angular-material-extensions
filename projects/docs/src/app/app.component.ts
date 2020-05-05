@@ -28,9 +28,9 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public selection = new SelectionModel<PeriodicElement>(true);
-
   public displayedColumns: string[] = ['select', 'position', 'name', 'weight', 'symbol'];
 
   public dataSource: MatTableDataSource<PeriodicElement> = new MatTableDataSource(ELEMENT_DATA);
+
+  public selection = new SelectionModel<PeriodicElement>(true);
 }
