@@ -31,7 +31,7 @@ displayedColumns = ['a', 'b'];
 ```
 
 ## MatSelectionColumnComponent
-A component which registers both a header cell def and a cell def for a column that provides checkboxes to select rows using a SelectionModel.
+A component which registers both a header cell def and a cell def for a column that provides checkboxes to select rows based on a SelectionModel.
 
 ### Usage
 ```ts
