@@ -10,7 +10,7 @@
     "@angular/material",
     "@angular/cdk"
   ],
-  "version": "0.0.4",
+  "version": "0.0.5",
   "peerDependencies": {
     "@angular/common": "^9.1.0",
     "@angular/core": "^9.1.0",
