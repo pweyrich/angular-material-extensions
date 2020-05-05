@@ -10,7 +10,8 @@ import {
   MatColumnDef,
   MatCellDef,
   MatHeaderCellDef,
-  MatTable
+  MatTable,
+  MatTableDataSource
 } from '@angular/material/table';
 
 @Component({
@@ -44,7 +45,16 @@ export class MatSelectionColumnComponent<T> implements OnInit, OnDestroy {
   }
 
   private get data(): T[] {
-    return this.table?.dataSource as T[] || [];
+    if (!this.table)
+    {
+      return [];
+    }
+    if (this.table.dataSource instanceof MatTableDataSource)
+    {
+      return this.table.dataSource.data || [];
+    }
+
+    return this.table.dataSource as T[] || [];
   }
 
 
