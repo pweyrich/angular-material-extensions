@@ -3,10 +3,10 @@
   <mat-selection-column name="select" [selection]="selection"></mat-selection-column>
 
   <ng-container matColumnDef="position">
-      <mat-header-cell *matHeaderCellDef>Position</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{ row.position }}  </mat-cell>
+    <mat-header-cell *matHeaderCellDef>Position</mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{ row.position }}  </mat-cell>
   </ng-container>
-
+  
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
     <mat-cell *matCellDef="let row"> {{ row.name }}  </mat-cell>
