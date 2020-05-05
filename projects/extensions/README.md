@@ -13,7 +13,6 @@ Add `matCustomHeader` directive to the header row.
 ```js
 dataSource = [{a: 1, b: 'one'}, {a: 2, b: 'two'}, {a: 3, b: 'three'}];
 displayedColumns = ['a', 'b'];
-selection = new SelectionModel<{a:number, b:string}>(true);
 ```
 
 ```html
