@@ -10,7 +10,7 @@ Enables a user to customize the order of columns via drag & drop on the table he
 ### Usage
 Add `matCustomHeader` directive to the header row.
 
-```js
+```ts
 dataSource = [{a: 1, b: 'one'}, {a: 2, b: 'two'}, {a: 3, b: 'three'}];
 displayedColumns = ['a', 'b'];
 selection = new SelectionModel<{a:number, b:string}>(true);
@@ -35,7 +35,7 @@ selection = new SelectionModel<{a:number, b:string}>(true);
 A component which registers both a header cell def and a cell def for a column that provides checkboxes to select rows using a SelectionModel.
 
 ### Usage
-```js
+```ts
 dataSource = [1,2,3];
 displayedColumns = ['select', 'data'];
 selection = new SelectionModel<number>(true);
