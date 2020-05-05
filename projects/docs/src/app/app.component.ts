@@ -30,13 +30,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class AppComponent {
   public selection = new SelectionModel<PeriodicElement>(true);
 
-  public columns: string[] = [
-    'position',
-    'name',
-    'weight',
-    'symbol'
-  ];
-
   public displayedColumns: string[] = ['select', 'position', 'name', 'weight', 'symbol'];
 
   public dataSource: MatTableDataSource<PeriodicElement> = new MatTableDataSource(ELEMENT_DATA);
