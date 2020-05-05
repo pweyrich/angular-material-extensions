@@ -10,13 +10,21 @@ Enables a user to customize the order of columns via drag & drop on the table he
 ### Usage
 Add `matCustomHeader` directive to the header row.
 
+```js
+dataSource = [{a: 1, b: 'one'}, {a: 2, b: 'two'}, {a: 3, b: 'three'}];
+displayedColumns = ['a', 'b'];
+selection = new SelectionModel<{a:number, b:string}>(true);
+```
+
 ```html
-<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-   <ng-container *ngFor="let column of columns; let i = index" [matColumnDef]="column">
-       <mat-header-cell *matHeaderCellDef>
-         {{ column }}
-       </mat-header-cell>
-       <mat-cell *matCellDef="let row"> {{ row[column] }}  </mat-cell>
+<mat-table [dataSource]="dataSource">
+   <ng-container matColumnDef="a">
+       <mat-header-cell *matHeaderCellDef>A</mat-header-cell>
+       <mat-cell *matCellDef="let row"> {{ row.a }} </mat-cell>
+   </ng-container>
+    <ng-container matColumnDef="b">
+       <mat-header-cell *matHeaderCellDef>B</mat-header-cell>
+       <mat-cell *matCellDef="let row"> {{ row.b }} </mat-cell>
    </ng-container>
    <mat-header-row *matHeaderRowDef="displayedColumns" matCustomHeader></mat-header-row>
    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
