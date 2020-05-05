@@ -27,13 +27,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public columns: string[] = [
-    'position',
-    'name',
-    'weight',
-    'symbol'
-  ];
-
   public displayedColumns: string[] = [ 'position', 'name', 'weight', 'symbol'];
 
   public dataSource: MatTableDataSource<PeriodicElement> = new MatTableDataSource(ELEMENT_DATA);
