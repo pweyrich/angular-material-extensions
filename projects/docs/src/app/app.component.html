@@ -1,4 +1,7 @@
 <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <mat-selection-column name="select" [selection]="selection"></mat-selection-column>
+
   <ng-container matColumnDef="position">
     <mat-header-cell *matHeaderCellDef>Position</mat-header-cell>
     <mat-cell *matCellDef="let row"> {{ row.position }}  </mat-cell>
