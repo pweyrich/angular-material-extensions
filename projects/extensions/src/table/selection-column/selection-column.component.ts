@@ -53,6 +53,7 @@ export class MatSelectionColumnComponent<T> implements OnInit, OnDestroy {
     {
       return this.table.dataSource.data || [];
     }
+    // TODO: What about Observables?
 
     return this.table.dataSource as T[] || [];
   }
