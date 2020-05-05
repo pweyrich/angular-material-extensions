@@ -2,8 +2,12 @@
 
 Extensions to the components provided by [@angular/material](https://material.angular.io/)
 
-# Usage
+# Table
 
+## MatCustomHeaderDirective
+Enables a user to customize the order of columns via drag & drop on the table header cells.
+
+### Usage
 Add `matCustomHeader` directive to the header row.
 
 ```html
@@ -15,6 +19,28 @@ Add `matCustomHeader` directive to the header row.
        <mat-cell *matCellDef="let row"> {{ row[column] }}  </mat-cell>
    </ng-container>
    <mat-header-row *matHeaderRowDef="displayedColumns" matCustomHeader></mat-header-row>
+   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+```
+
+## MatSelectionColumnComponent
+A component which registers both a header cell def and a cell def for a column that provides checkboxes to select rows using a SelectionModel.
+
+### Usage
+```js
+dataSource = [1,2,3];
+displayedColumns = ['select', 'data'];
+selection = new SelectionModel<number>(true);
+```
+
+```html
+<mat-table [dataSource]="dataSource">
+   <mat-selection-column name="select" [selection]="selection"></mat-selection-column>
+   <ng-container matColumnDef="data">
+       <mat-header-cell *matHeaderCellDef>Data</mat-header-cell>
+       <mat-cell *matCellDef="let row"> {{ row }} </mat-cell>
+   </ng-container>
+   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
 ```
