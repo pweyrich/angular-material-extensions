@@ -33,6 +33,9 @@ displayedColumns = ['a', 'b'];
 ## MatSelectionColumnComponent
 A component which registers both a header cell def and a cell def for a column that provides checkboxes to select rows based on a SelectionModel.
 
+### Note
+This component is not compatible with the [flex-layout](https://material.angular.io/components/table/overview#tables-with-code-display-flex-code-) table!
+
 ### Usage
 ```ts
 dataSource = [1,2,3];
@@ -41,13 +44,13 @@ selection = new SelectionModel<number>(true);
 ```
 
 ```html
-<mat-table [dataSource]="dataSource">
+<table mat-table [dataSource]="dataSource">
    <mat-selection-column name="select" [selection]="selection"></mat-selection-column>
    <ng-container matColumnDef="data">
-       <mat-header-cell *matHeaderCellDef>Data</mat-header-cell>
-       <mat-cell *matCellDef="let row"> {{ row }} </mat-cell>
+       <th mat-header-cell *matHeaderCellDef>Data</th>
+       <td mat-cell *matCellDef="let row"> {{ row }} </td>
    </ng-container>
-   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
+   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
 ```
