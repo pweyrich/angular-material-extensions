@@ -2,6 +2,11 @@ Extensions to the components provided by [@angular/material](https://material.an
 
 ![CI](https://github.com/pweyrich/angular-material-extensions/workflows/CI/badge.svg?branch=master)
 
+Add this library to your project with
+```shell script
+ng add angular-material-extensions
+```
+
 # Table
 
 ## MatCustomHeaderDirective
