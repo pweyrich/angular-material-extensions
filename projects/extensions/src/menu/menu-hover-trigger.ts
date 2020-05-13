@@ -30,11 +30,11 @@ import {
 } from 'rxjs/operators';
 
 @Directive({
-  selector: '[matMenuTriggerHover]',
+  selector: '[matMenuHoverTriggerFor]',
 })
-export class MenuTriggerHover extends MatMenuTrigger implements OnInit
+export class MenuHoverTrigger extends MatMenuTrigger implements OnInit
 {
-  @Input('matMenuTriggerHover')
+  @Input('matMenuHoverTriggerFor')
   get hoverMenu(): MatMenuPanel
   {
     return this.menu;
@@ -82,8 +82,8 @@ export class MenuTriggerHover extends MatMenuTrigger implements OnInit
       }),
       switchMap(() => this.backdropHover$.pipe(
         takeUntil(this.menuClosed),
-          skip(1),
-          tap(() => this.closeMenu())
+        skip(1),
+        tap(() => this.closeMenu())
       ))
     ).subscribe();
   }

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MenuTriggerHover } from './menu-trigger-hover';
+import { MenuHoverTrigger } from './menu-hover-trigger';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [MenuTriggerHover],
-  exports: [MenuTriggerHover]
+  declarations: [MenuHoverTrigger],
+  exports: [MenuHoverTrigger]
 })
 export class MatMenuExtensionsModule {}
