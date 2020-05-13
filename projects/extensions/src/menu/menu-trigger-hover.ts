@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Directive,
   ElementRef,
   HostListener,
@@ -11,27 +10,21 @@ import {
   ViewContainerRef
 } from '@angular/core';
 import {
-  MatMenuPanel,
-  MatMenuTrigger,
-  MatMenu,
   MAT_MENU_SCROLL_STRATEGY,
-  MatMenuItem
+  MatMenu,
+  MatMenuItem,
+  MatMenuPanel,
+  MatMenuTrigger
 } from '@angular/material/menu';
-import {
-  asapScheduler,
-  Subject
-} from 'rxjs';
+import { Subject } from 'rxjs';
 import { Directionality } from '@angular/cdk/bidi';
 import {
   Overlay,
   OverlayRef
 } from '@angular/cdk/overlay';
 import {
-  delay,
-  filter,
   skip,
   switchMap,
-  take,
   takeUntil,
   tap
 } from 'rxjs/operators';
