@@ -26,8 +26,7 @@ import {
   skip,
   switchMap,
   takeUntil,
-  tap,
-  timeoutWith
+  tap
 } from 'rxjs/operators';
 
 @Directive({
