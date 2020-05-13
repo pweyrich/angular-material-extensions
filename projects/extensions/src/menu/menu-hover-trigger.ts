@@ -26,7 +26,8 @@ import {
   skip,
   switchMap,
   takeUntil,
-  tap
+  tap,
+  timeoutWith
 } from 'rxjs/operators';
 
 @Directive({
@@ -44,22 +45,10 @@ export class MenuHoverTrigger extends MatMenuTrigger implements OnInit
     this.menu = menu;
   }
 
-  @HostListener('mouseenter') _handleMouseEnter(event: MouseEvent) {
-    // see first answer in this thread
-    // (https://stackoverflow.com/questions/53618333/how-to-open-and-close-angular-mat-menu-on-hover)
-    // to figure out why mouseleave event is emitted when opening the menu
-    this.mouseEnter$.next(event);
-    console.log('entered');
-  }
-
-  @HostListener('mouseleave') _handleMouseLeave(event: MouseEvent) {
-    this.mouseLeave$.next(event);
-    console.log('left');
-  }
-
-  private mouseEnter$:Subject<MouseEvent> = new Subject();
-  private mouseLeave$:Subject<MouseEvent> = new Subject();
-  private backdropHover$:Subject<MouseEvent> = new Subject();
+  private mouseEnter$ = new Subject<MouseEvent>();
+  private mouseLeave$ = new Subject<MouseEvent>();
+  private backdropHover$ = new Subject<MouseEvent>();
+  private backdropExited$ = new Subject<MouseEvent>();
 
   constructor(private overlay: Overlay,
               private element: ElementRef<HTMLElement>,
@@ -78,13 +67,23 @@ export class MenuHoverTrigger extends MatMenuTrigger implements OnInit
       tap(() => this.openMenu()),
       tap(() => {
         const overlayRef = (this['_overlayRef'] as OverlayRef);
-        overlayRef.backdropElement.onmouseenter = (event) => this.backdropHover$.next(event);
+        overlayRef.backdropElement.onmouseenter = (event) => {this.backdropHover$.next(event); console.log('mouse entered backdrop');}
+        overlayRef.backdropElement.onmouseleave = (event) => {this.backdropExited$.next(event); console.log('mouse left backdrop');};
       }),
       switchMap(() => this.backdropHover$.pipe(
         takeUntil(this.menuClosed),
         skip(1),
+        tap(() => console.log('left menu')),
         tap(() => this.closeMenu())
       ))
     ).subscribe();
+  }
+
+  @HostListener('mouseenter') _handleMouseEnter(event: MouseEvent) {
+    // see first answer in this thread
+    // (https://stackoverflow.com/questions/53618333/how-to-open-and-close-angular-mat-menu-on-hover)
+    // to figure out why mouseleave event is emitted when opening the menu
+    this.mouseEnter$.next(event);
+    console.log('entered');
   }
 }
