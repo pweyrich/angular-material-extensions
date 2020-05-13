@@ -5,7 +5,12 @@ import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatTableExtensionsModule } from 'extensions';
+import {
+  MatMenuExtensionsModule,
+  MatTableExtensionsModule
+} from 'extensions';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -17,6 +22,9 @@ import { MatTableExtensionsModule } from 'extensions';
     AppRoutingModule,
     MatTableModule,
     MatTableExtensionsModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatMenuExtensionsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

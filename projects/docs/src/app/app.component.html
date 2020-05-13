@@ -25,3 +25,15 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns" matCustomHeader></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<button mat-button [matMenuTriggerHover]="rootMenu">Hover me!</button>
+<mat-menu #rootMenu="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="subMenu">Power</button>
+  <button mat-menu-item>System settings</button>
+</mat-menu>
+
+<mat-menu #subMenu="matMenu">
+  <button mat-menu-item>Shut down</button>
+  <button mat-menu-item>Restart</button>
+  <button mat-menu-item>Hibernate</button>
+</mat-menu>
