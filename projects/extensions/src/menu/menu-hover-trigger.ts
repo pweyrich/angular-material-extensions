@@ -46,8 +46,8 @@ export class MenuHoverTrigger extends MatMenuTrigger implements OnInit
       tap(() => {
         /*tslint:disable-next-line:no-string-literal*/
         const overlayRef = (this['_overlayRef'] as OverlayRef);
-        overlayRef.backdropElement.onmouseenter = (event) => {this.backdropHover$.next(event); console.log('mouse entered backdrop');}
-        overlayRef.backdropElement.onmouseleave = (event) => {this.backdropExited$.next(event); console.log('mouse left backdrop');};
+        overlayRef.backdropElement.onmouseenter = (event) => {this.backdropHover$.next(event); console.log('mouse entered backdrop'); };
+        overlayRef.backdropElement.onmouseleave = (event) => {this.backdropExited$.next(event); console.log('mouse left backdrop'); };
       }),
       switchMap(() => this.backdropHover$.pipe(
         takeUntil(this.menuClosed),
