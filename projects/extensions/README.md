@@ -59,3 +59,28 @@ selection = new SelectionModel<number>(true);
    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 ```
+
+# Menu
+
+## MatMenuHoverTriggerFor
+This directive can be used to make a mat-menu open and close on hover on the host element.
+In nested sub-menus you should still use the `matMenuTriggerFor` directive.
+
+### Usage
+```html
+<mat-menu #rootMenu="matMenu">
+  <button mat-menu-item [matMenuTriggerHoverFor]="subMenu">Power</button>
+  <button mat-menu-item>System settings</button>
+</mat-menu>
+
+<mat-menu #subMenu="matMenu">
+  <button mat-menu-item>Shut down</button>
+  <button mat-menu-item>Restart</button>
+  <button mat-menu-item>Hibernate</button>
+</mat-menu>
+
+<button mat-icon-button [matMenuTriggerFor]="rootMenu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+```
+
