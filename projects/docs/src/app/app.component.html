@@ -26,7 +26,7 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
-<button mat-button [matMenuHoverTriggerFor]="rootMenu">Hover me!</button>
+<button mat-flat-button color="primary" [matMenuHoverTriggerFor]="rootMenu">Hover me!</button>
 <mat-menu #rootMenu="matMenu">
   <button mat-menu-item [matMenuTriggerFor]="subMenu">Power</button>
   <button mat-menu-item>System settings</button>
