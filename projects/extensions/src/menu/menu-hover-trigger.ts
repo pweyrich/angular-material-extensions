@@ -20,6 +20,7 @@ import {
 @Directive({
   selector: '[matMenuHoverTriggerFor]',
 })
+/*tslint:disable-next-line:directive-class-suffix*/
 export class MenuHoverTrigger extends MatMenuTrigger implements OnInit
 {
   @Input('matMenuHoverTriggerFor')
@@ -43,6 +44,7 @@ export class MenuHoverTrigger extends MatMenuTrigger implements OnInit
     this.mouseEnter$.pipe(
       tap(() => this.openMenu()),
       tap(() => {
+        /*tslint:disable-next-line:no-string-literal*/
         const overlayRef = (this['_overlayRef'] as OverlayRef);
         overlayRef.backdropElement.onmouseenter = (event) => {this.backdropHover$.next(event); console.log('mouse entered backdrop');}
         overlayRef.backdropElement.onmouseleave = (event) => {this.backdropExited$.next(event); console.log('mouse left backdrop');};
