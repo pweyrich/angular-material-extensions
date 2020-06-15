@@ -24,7 +24,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatTableExtensionsModule,
     MatButtonModule,
     MatMenuModule,
-    MatMenuExtensionsModule,
+    MatMenuExtensionsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
