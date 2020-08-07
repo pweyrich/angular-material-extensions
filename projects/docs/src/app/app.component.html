@@ -25,3 +25,10 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns" matCustomHeader></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+
+<ng-template #minis>
+  <button mat-mini-fab><mat-icon>import</mat-icon></button>
+  <button mat-mini-fab>Bla</button>
+</ng-template>
+<button mat-fab [multiFabTriggerFor]="minis"><mat-icon>add</mat-icon></button>
