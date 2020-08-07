@@ -3,7 +3,8 @@ import { TemplatePortal } from '@angular/cdk/portal';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 
 @Directive({
-    selector: 'button[multiFabTriggerFor]'
+    selector: 'button[multiFabTriggerFor]',
+    exportAs: 'multiFab'
 })
 export class MultiFabTriggerDirective implements AfterViewInit, OnDestroy
 {
@@ -27,7 +28,8 @@ export class MultiFabTriggerDirective implements AfterViewInit, OnDestroy
           overlayX: 'center',
           overlayY: 'bottom'
       }]),
-      hasBackdrop: true
+      hasBackdrop: true,
+      panelClass: 'multi-fab'
     });
     this._overlayRef.backdropClick().subscribe(() => this._overlayRef.detach());
   }
@@ -39,5 +41,10 @@ export class MultiFabTriggerDirective implements AfterViewInit, OnDestroy
  @HostListener('click')
  onHostClick() {
      this._overlayRef.attach(this._portal);
+ }
+
+ get open():boolean
+ {
+     return this._overlayRef?.hasAttached();
  }
 }

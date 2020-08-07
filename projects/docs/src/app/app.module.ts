@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatTableExtensionsModule, MatButtonExtensionsModule } from 'extensions';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MatTableExtensionsModule, MatButtonExtensionsModule } from 'extensions'
     MatTableExtensionsModule,
     MatButtonModule,
     MatIconModule,
-    MatButtonExtensionsModule
+    MatButtonExtensionsModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
