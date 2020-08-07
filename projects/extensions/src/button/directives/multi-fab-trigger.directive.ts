@@ -31,7 +31,7 @@ export class MultiFabTriggerDirective implements AfterViewInit, OnDestroy
       hasBackdrop: true,
       panelClass: 'multi-fab'
     });
-    this._overlayRef.backdropClick().subscribe(() => this._overlayRef.detach());
+    this._overlayRef.backdropClick().subscribe(() => this.close());
   }
 
   ngOnDestroy() {
@@ -39,11 +39,17 @@ export class MultiFabTriggerDirective implements AfterViewInit, OnDestroy
   }
 
  @HostListener('click')
- onHostClick() {
-     this._overlayRef.attach(this._portal);
+ public open():void
+ {
+    this._overlayRef.attach(this._portal);
  }
 
- get open():boolean
+ public close():void
+ {
+    this._overlayRef.detach()
+ }
+
+ get isOpen():boolean
  {
      return this._overlayRef?.hasAttached();
  }
