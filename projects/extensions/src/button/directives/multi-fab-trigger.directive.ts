@@ -21,7 +21,12 @@ export class MultiFabTriggerDirective implements AfterViewInit, OnDestroy
  ngAfterViewInit() {
     this._portal = new TemplatePortal(this.template, this.vcRef);
     this._overlayRef = this.overlay.create({
-    //   positionStrategy: this.overlay.position().flexibleConnectedTo(this.elRef),
+      positionStrategy: this.overlay.position().flexibleConnectedTo(this.elRef).withPositions([{
+          originX: 'center',
+          originY: 'top',
+          overlayX: 'center',
+          overlayY: 'bottom'
+      }]),
       hasBackdrop: true
     });
     this._overlayRef.backdropClick().subscribe(() => this._overlayRef.detach());
