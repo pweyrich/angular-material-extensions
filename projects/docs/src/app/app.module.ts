@@ -14,9 +14,9 @@ import { MatTableExtensionsModule } from 'extensions';
     BrowserAnimationsModule,
     AppRoutingModule,
     MatTableModule,
-    MatTableExtensionsModule,
+    MatTableExtensionsModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

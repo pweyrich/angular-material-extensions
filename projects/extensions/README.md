@@ -22,7 +22,7 @@ Add `matCustomHeader` directive to the header row.
 dataSource = [
   { a: 1, b: "one" },
   { a: 2, b: "two" },
-  { a: 3, b: "three" },
+  { a: 3, b: "three" }
 ];
 displayedColumns = ["a", "b"];
 ```

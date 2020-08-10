@@ -7,7 +7,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 const matTableStub: Partial<MatTable<number>> = {
   addColumnDef: noop,
   removeColumnDef: noop,
-  dataSource: [1, 2, 3],
+  dataSource: [1, 2, 3]
 };
 
 describe('MatSelectionColumnComponent: ', () => {
@@ -21,9 +21,9 @@ describe('MatSelectionColumnComponent: ', () => {
       providers: [
         {
           provide: MatTable,
-          useValue: matTableStub,
-        },
-      ],
+          useValue: matTableStub
+        }
+      ]
     });
 
     fixture = TestBed.createComponent<MatSelectionColumnComponent<number>>(

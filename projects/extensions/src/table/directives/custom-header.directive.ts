@@ -3,12 +3,12 @@ import {
   DragDrop,
   DragRef,
   DropListRef,
-  moveItemInArray,
+  moveItemInArray
 } from '@angular/cdk/drag-drop';
 import { MatHeaderCell, MatTable } from '@angular/material/table';
 
 @Directive({
-  selector: '[matCustomHeader]',
+  selector: '[matCustomHeader]'
 })
 export class CustomHeaderDirective implements AfterViewInit {
   private dropListRef: DropListRef;

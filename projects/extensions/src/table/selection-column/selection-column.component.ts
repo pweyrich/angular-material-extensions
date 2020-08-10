@@ -5,13 +5,13 @@ import {
   MatCellDef,
   MatHeaderCellDef,
   MatTable,
-  MatTableDataSource,
+  MatTableDataSource
 } from '@angular/material/table';
 
 @Component({
   selector: 'mat-selection-column',
   templateUrl: './selection-column.component.html',
-  styleUrls: ['./selection-column.component.scss'],
+  styleUrls: ['./selection-column.component.scss']
 })
 export class MatSelectionColumnComponent<T> implements OnInit, OnDestroy {
   /** @description Name of the column */

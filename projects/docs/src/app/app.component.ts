@@ -18,13 +18,13 @@ const ELEMENT_DATA: PeriodicElement[] = [
   { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
   { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
   { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
+  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' }
 ];
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   public displayedColumns: string[] = [
@@ -32,7 +32,7 @@ export class AppComponent {
     'position',
     'name',
     'weight',
-    'symbol',
+    'symbol'
   ];
 
   public dataSource: MatTableDataSource<

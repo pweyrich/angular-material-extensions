@@ -10,6 +10,6 @@ import { MatSelectionColumnComponent } from './selection-column/selection-column
 @NgModule({
   declarations: [CustomHeaderDirective, MatSelectionColumnComponent],
   imports: [CommonModule, MatTableModule, MatCheckboxModule],
-  exports: [CustomHeaderDirective, MatSelectionColumnComponent],
+  exports: [CustomHeaderDirective, MatSelectionColumnComponent]
 })
 export class MatTableExtensionsModule {}
