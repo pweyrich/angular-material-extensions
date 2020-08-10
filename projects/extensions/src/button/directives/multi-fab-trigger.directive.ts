@@ -1,4 +1,4 @@
-import {Directive, Input, TemplateRef, HostListener, ViewContainerRef, ElementRef, AfterViewInit, OnDestroy} from '@angular/core';
+import {Directive, Input, TemplateRef, HostListener, ViewContainerRef, ElementRef, OnInit, OnDestroy} from '@angular/core';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 
@@ -6,7 +6,7 @@ import { Overlay, OverlayRef } from '@angular/cdk/overlay';
     selector: 'button[multiFabTriggerFor]',
     exportAs: 'multiFab'
 })
-export class MultiFabTriggerDirective implements AfterViewInit, OnDestroy
+export class MultiFabTriggerDirective implements OnInit, OnDestroy
 {
  @Input('multiFabTriggerFor') template:TemplateRef<any>;
 
@@ -19,7 +19,7 @@ export class MultiFabTriggerDirective implements AfterViewInit, OnDestroy
      private _overlay:Overlay
 ){}
 
- ngAfterViewInit() {
+ ngOnInit() {
     this._portal = new TemplatePortal(this.template, this._vcRef);
     this._overlayRef = this._overlay.create({
       positionStrategy: this._overlay.position().flexibleConnectedTo(this._elRef).withPositions([{
