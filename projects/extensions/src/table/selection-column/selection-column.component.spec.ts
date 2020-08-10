@@ -1,11 +1,5 @@
-import {
-  ComponentFixture,
-  TestBed
-} from '@angular/core/testing';
-import {
-  MatTable,
-  MatTableModule
-} from '@angular/material/table';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatTable, MatTableModule } from '@angular/material/table';
 import { MatSelectionColumnComponent } from './selection-column.component';
 import { noop } from 'rxjs';
 import { SelectionModel } from '@angular/cdk/collections';
@@ -13,36 +7,36 @@ import { SelectionModel } from '@angular/cdk/collections';
 const matTableStub: Partial<MatTable<number>> = {
   addColumnDef: noop,
   removeColumnDef: noop,
-  dataSource: [1, 2, 3]
+  dataSource: [1, 2, 3],
 };
 
-describe('MatSelectionColumnComponent: ', () =>
-{
+describe('MatSelectionColumnComponent: ', () => {
   let fixture: ComponentFixture<MatSelectionColumnComponent<number>>;
   let component: MatSelectionColumnComponent<number>;
 
-  beforeEach(() =>
-  {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      imports:      [MatTableModule],
+      imports: [MatTableModule],
       declarations: [MatSelectionColumnComponent],
-      providers: [{
-        provide: MatTable,
-        useValue: matTableStub
-      }]
+      providers: [
+        {
+          provide: MatTable,
+          useValue: matTableStub,
+        },
+      ],
     });
 
-    fixture = TestBed.createComponent<MatSelectionColumnComponent<number>>(MatSelectionColumnComponent);
+    fixture = TestBed.createComponent<MatSelectionColumnComponent<number>>(
+      MatSelectionColumnComponent
+    );
     component = fixture.componentInstance;
   });
 
-  it('should create', () =>
-  {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should register itself in the table during initialization', () =>
-  {
+  it('should register itself in the table during initialization', () => {
     const matTable = TestBed.inject(MatTable);
     const addColumnDefSpy = spyOn(matTable, 'addColumnDef');
 
@@ -51,8 +45,7 @@ describe('MatSelectionColumnComponent: ', () =>
     expect(addColumnDefSpy).toHaveBeenCalledTimes(1);
   });
 
-  it('should unregister itself in the table when it is destroyed', () =>
-  {
+  it('should unregister itself in the table when it is destroyed', () => {
     const matTable = TestBed.inject(MatTable);
     const removeColumnDefSpy = spyOn(matTable, 'removeColumnDef');
 
@@ -61,8 +54,7 @@ describe('MatSelectionColumnComponent: ', () =>
     expect(removeColumnDefSpy).toHaveBeenCalledTimes(1);
   });
 
-  it(`should update the columnDef's name with the value of the #name input`, () =>
-  {
+  it(`should update the columnDef's name with the value of the #name input`, () => {
     component.name = 'test';
 
     component.ngOnInit();
@@ -70,36 +62,30 @@ describe('MatSelectionColumnComponent: ', () =>
     expect(component.columnDef.name).toBe(component.name);
   });
 
-  it(`should set the columnDef's name with a default value of 'select'`, () =>
-  {
+  it(`should set the columnDef's name with a default value of 'select'`, () => {
     component.ngOnInit();
     expect(component.columnDef.name).toBe('select');
   });
 
-  it(`should set the columnDef's header with the headerCellDef viewChild`, () =>
-  {
+  it(`should set the columnDef's header with the headerCellDef viewChild`, () => {
     component.ngOnInit();
     expect(component.columnDef.headerCell).toBe(component.headerCell);
   });
 
-  it(`should set the columnDef's cell with the cellDef viewChild`, () =>
-  {
+  it(`should set the columnDef's cell with the cellDef viewChild`, () => {
     component.ngOnInit();
     expect(component.columnDef.cell).toBe(component.cell);
   });
 
-  describe('with SelectionModel', () =>
-  {
+  describe('with SelectionModel', () => {
     let data: number[];
-    beforeEach(() =>
-    {
+    beforeEach(() => {
       component.selection = new SelectionModel<number>(true);
       const matTable = TestBed.inject(MatTable);
       data = matTable.dataSource as number[];
     });
 
-    it('should give information about the current state of selection via #isAllSelected', () =>
-    {
+    it('should give information about the current state of selection via #isAllSelected', () => {
       expect(component.selection.selected.length).toBe(0);
       expect(component.selection.isEmpty()).toBe(true);
       expect(component.isAllSelected()).toBe(false);
@@ -111,8 +97,7 @@ describe('MatSelectionColumnComponent: ', () =>
       expect(component.isAllSelected()).toBe(true);
     });
 
-    it('should toggle all if the #masterToggle() is executed', () =>
-    {
+    it('should toggle all if the #masterToggle() is executed', () => {
       expect(component.isAllSelected()).toBe(false);
       expect(component.selection.selected.length).toBe(0);
 
@@ -128,16 +113,13 @@ describe('MatSelectionColumnComponent: ', () =>
     });
   });
 
-  describe(`without SelectionModel`, () =>
-  {
-    it(`should return false for #isAllSelected()`, () =>
-    {
+  describe(`without SelectionModel`, () => {
+    it(`should return false for #isAllSelected()`, () => {
       expect(component.selection).toBeUndefined();
       expect(component.isAllSelected()).toBe(false);
     });
 
-    it(`should not do anything when executing the #masterToggle()`, () =>
-    {
+    it(`should not do anything when executing the #masterToggle()`, () => {
       expect(component.isAllSelected()).toBe(false);
 
       component.masterToggle();

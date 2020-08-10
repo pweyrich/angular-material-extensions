@@ -8,9 +8,7 @@ import { AppComponent } from './app.component';
 import { MatTableExtensionsModule } from 'extensions';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -19,6 +17,6 @@ import { MatTableExtensionsModule } from 'extensions';
     MatTableExtensionsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
