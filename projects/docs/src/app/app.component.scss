@@ -33,7 +33,14 @@
   width: 20px;
 }
 
+button[mat-fab]
+{
+  transition: 0.2s ease;
+  &.rotated {
+    transform: rotate(45deg);
+  }
+}
 
-.rotated {
-  transform: rotate(45deg);
+.mat-mini-fab {
+  margin-bottom: 10px
 }
