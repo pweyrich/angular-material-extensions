@@ -32,3 +32,11 @@
 {
   width: 20px;
 }
+
+button[mat-fab]
+{
+  transition: 0.2s ease;
+  &.rotated {
+    transform: rotate(45deg);
+  }
+}

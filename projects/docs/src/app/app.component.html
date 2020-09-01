@@ -25,3 +25,14 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns" matCustomHeader></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<mat-speed-dial #speedDial>
+  <button mat-mini-fab matTooltip="Filter" matTooltipPosition="before"><mat-icon>filter_list</mat-icon></button>
+  <button mat-mini-fab matTooltip="Importieren" matTooltipPosition="before"><mat-icon>publish</mat-icon></button>
+</mat-speed-dial>
+<button
+  mat-fab
+  [matSpeedDialTrigger]="speedDial"
+  style="position: absolute; bottom: 10px; right: 10px">
+  <mat-icon>add</mat-icon>
+</button>
