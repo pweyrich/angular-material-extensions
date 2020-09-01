@@ -5,7 +5,10 @@ import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatTableExtensionsModule } from 'extensions';
+import { MatTableExtensionsModule, MatButtonExtensionsModule } from 'extensions';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -15,8 +18,12 @@ import { MatTableExtensionsModule } from 'extensions';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    MatIconModule,
+    MatTooltipModule,
     MatTableModule,
+    MatButtonModule,
     MatTableExtensionsModule,
+    MatButtonExtensionsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
