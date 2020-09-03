@@ -33,4 +33,9 @@ export class AppComponent {
   public dataSource: MatTableDataSource<PeriodicElement> = new MatTableDataSource(ELEMENT_DATA);
 
   public selection = new SelectionModel<PeriodicElement>(true);
+
+  public delete()
+  {
+    console.log('deleted');
+  }
 }

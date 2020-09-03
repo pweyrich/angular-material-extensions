@@ -25,3 +25,10 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns" matCustomHeader></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+
+<button mat-button [withConfirmation]="confirmation" (confirmed)="delete()">Delete</button>
+
+<ng-template #confirmation>
+  Hello my love. Would you really like to delete this?
+</ng-template>
