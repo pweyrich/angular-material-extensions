@@ -18,7 +18,7 @@ import { MatButton } from '@angular/material/button';
 })
 export class ConfirmationDirective
 {
-  @Input('withConfirmation') templateRef: TemplateRef<any>;
+  @Input('withConfirmation') confirmation: TemplateRef<any> | string;
 
   @Output() confirmed: EventEmitter<MouseEvent> = new EventEmitter();
 
@@ -35,7 +35,7 @@ export class ConfirmationDirective
   @HostListener('click', ['$event'])
   public onClick(event: MouseEvent) {
     const dialogRef = this.dialog.open(ConfirmationComponent, {
-      data: this.templateRef
+      data: this.confirmation
     });
 
     dialogRef.afterClosed().pipe(

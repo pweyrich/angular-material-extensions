@@ -9,7 +9,14 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   selector: 'mat-confirmation',
   template: `<h2 mat-dialog-title>Confirmation</h2>
   <mat-dialog-content>
-    <ng-container *ngTemplateOutlet="templateRef"></ng-container>
+    <ng-container [ngSwitch]="content | confirmationContentType">
+      <ng-container *ngSwitchCase="'string'">
+        {{content}}
+      </ng-container>
+      <ng-container *ngSwitchCase="'template'">
+        <ng-container *ngTemplateOutlet="content"></ng-container>
+      </ng-container>
+    </ng-container>
   </mat-dialog-content>
   <mat-dialog-actions>
     <button mat-button mat-dialog-close>Cancel</button>
@@ -18,6 +25,6 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ConfirmationComponent {
   constructor(
-    @Inject(MAT_DIALOG_DATA) public templateRef: TemplateRef<any>
+    @Inject(MAT_DIALOG_DATA) public content: TemplateRef<any> | string
   ) {}
 }
