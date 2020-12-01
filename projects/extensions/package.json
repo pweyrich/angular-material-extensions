@@ -1,6 +1,6 @@
 {
   "name": "angular-material-extensions",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "keywords": [
     "angular",
     "material",
@@ -17,11 +17,13 @@
     "postbuild": "npm run copy:collection"
   },
   "peerDependencies": {
-    "@angular/common": "^9.0.0",
-    "@angular/core": "^9.0.0",
-    "@angular/material": "^9.0.0",
-    "@angular/cdk": "^9.0.0",
-    "tslib": "^1.10.0"
-  },
-  "schematics": "./schematics/collection.json"
+    "@angular/common": "^11.0.0",
+    "@angular/core": "^11.0.0",
+    "@angular/material": "^11.0.0",
+    "@angular/cdk": "^11.0.0"
+},
+  "schematics": "./schematics/collection.json",
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
 }
