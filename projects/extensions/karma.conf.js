@@ -21,7 +21,8 @@ module.exports = function (config) {
     },
     coverageReporter: {
       type : 'html',
-      dir : '../../coverage/extensions'
+      dir : '../../coverage/extensions',
+      subdir: '.'
     },
     port: 9876,
     colors: true,
